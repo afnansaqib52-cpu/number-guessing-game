@@ -1,48 +1,123 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #667eea, #764ba2);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
+  min-height: 100vh;
+  padding: 15px;
 }
 
 .game-box {
   background: white;
-  padding: 30px;
-  border-radius: 15px;
+  padding: clamp(20px, 5vw, 40px);
+  border-radius: 20px;
   text-align: center;
-  width: 320px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.game-header {
+  margin-bottom: 25px;
+}
+
+.game-header h2 {
+  font-size: clamp(1.3rem, 5vw, 1.8rem);
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #666;
+  font-size: clamp(0.85rem, 3vw, 1rem);
+}
+
+.input-area {
+  margin: 15px 0;
 }
 
 input {
-  padding: 8px;
-  width: 80%;
-  margin: 10px 0;
-  font-size: 16px;
+  padding: 12px;
+  width: 100%;
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  border: 2px solid #667eea;
+  border-radius: 10px;
+  outline: none;
+  text-align: center;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: #764ba2;
+  box-shadow: 0 0 8px rgba(118, 75, 162, 0.3);
+}
+
+.btn-area {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 15px 0;
 }
 
 button {
-  padding: 8px 15px;
-  margin: 5px;
+  padding: 12px 25px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
-  background: #667eea;
+  background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
+  font-size: clamp(0.9rem, 3vw, 1rem);
+  font-weight: bold;
+  transition: 0.3s;
+  flex: 1;
 }
 
 button:hover {
-  background: #5563c1;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.restart-btn {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+.restart-btn:hover {
+  box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
 }
 
 .message {
-  margin-top: 10px;
+  margin-top: 15px;
   font-weight: bold;
+  font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+  min-height: 28px;
+  color: #333;
 }
 
 .attempts {
-  color: red;
+  margin-top: 12px;
+  color: #e74c3c;
+  font-size: clamp(0.9rem, 3vw, 1rem);
+  font-weight: bold;
+  background: #ffeaea;
+  padding: 8px 15px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+
+@media (max-width: 360px) {
+  .btn-area {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
 }
